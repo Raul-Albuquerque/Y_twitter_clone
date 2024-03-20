@@ -6,3 +6,6 @@ class Tweet(models.Model):
   content = models.TextField(max_length=180, blank=True)
   tweet_date = models.DateTimeField(auto_now_add=True)
   likes = models.ManyToManyField(User, related_name="tweet_like", blank=True)
+
+  def like_amount(self):
+    return self.likes.count()
