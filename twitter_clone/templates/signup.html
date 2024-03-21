@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <article class="col-6 text-start">
+    <div class="row">
+      <div class="col-6 mb-3">
+        <h2 class="fw-bold">Inscreva-se hoje</h2>
+      </div>
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="usuario" class="form-label text-secondary">Usuário:</label>
+        <input type="email" class="form-control bg-black text-light" id="usuario" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="nome" class="form-label text-secondary">Nome:</label>
+        <input type="email" class="form-control bg-black text-light" id="nome" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="sobrenome" class="form-label text-secondary">Sobrenome:</label>
+        <input type="email" class="form-control bg-black text-light" id="sobrenome" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-secondary">E-mail:</label>
+        <input type="email" class="form-control bg-black text-light" id="email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="senha" class="form-label text-secondary">Senha:</label>
+        <input type="email" class="form-control bg-black text-light" id="senha" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="termos">
+        <label class="form-check-label fw-light text-secondary" for="termos" style="font-size: 14px;">
+          Ao se inscrever, você concorda com nossos 
+          <span class="text-primary">Termos</span>,
+          com a <span class="text-primary">Política de Privacidade</span> e com o Uso de 
+          <span class="text-primary">Cookies</span>. 
+        </label>
+      </div>
+      <div class="d-grid gap-2 mt-2">
+        <button class="btn btn-primary btn-lg" type="button" style="border-radius: 20px;">Enviar</button>
+      </div>
+    </form>
+  </article>      
+  
+{% endblock content %}

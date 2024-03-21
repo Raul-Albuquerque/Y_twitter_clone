@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <article class="col-6 text-start">
+    <div class="row mb-3">
+      <div class="col-6">
+        <h2 class="fw-bold">Entrar no Y</h2>
+      </div>
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="usuario" class="form-label text-secondary">Usuário:</label>
+        <input type="email" class="form-control bg-black text-light" id="usuario" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="nome" class="form-label text-secondary">Senha:</label>
+        <input type="email" class="form-control bg-black text-light" id="nome" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="termos">
+        <label class="form-check-label fw-light text-secondary" for="termos" style="font-size: 14px;">
+          Não sou um robô.
+        </label>
+      </div>
+      <div class="d-grid gap-2 mt-2">
+        <button class="btn btn-primary btn-lg" type="button" style="border-radius: 20px;">Entrar</button>
+      </div>
+      <div class="mt-4 form-check">
+        <label class="form-check-label fw-light text-secondary" style="font-size: 14px;">
+          Não tem uma conta?
+          <span class="text-primary">
+            <a href="" class="">Inscreva-se</a>
+          </span>
+        </label>
+      </div>
+    </form>
+  </article>   
+
+{% endblock content %}
