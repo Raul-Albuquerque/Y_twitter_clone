@@ -1,0 +1,159 @@
+:root{
+  --border-radius: 20px;
+  --bg-color: #000;
+  --white: rgb(231, 233, 234); 
+  --primary-blue: rgb(29, 155, 240);
+  --secondary-blue: #1d9be1;
+  --outline-btn: rgb(83, 100, 113);
+  --text-gray: #71767b;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--white);
+}
+
+.container {
+  max-width: 90dvw;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+
+  @media(max-width: 680px) {
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px;
+  }
+}
+
+.container-full {
+  height: 100dvh;
+
+  @media(max-width: 680px) {
+    height: 100%;
+  }
+}
+
+section {
+  text-align: center;
+
+  @media(max-width: 680px) {
+    text-align: start;
+  }
+}
+
+.content-container {
+  text-align: start;
+
+  @media(max-width: 680px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* images */
+
+.img-control {
+  max-width: 280px;
+  width: 100%;
+
+  @media(max-width: 680px) {
+    width: 40px;
+    padding-top: 16px;
+  }
+}
+
+/* texts */
+
+.text-blue {
+  color: var(--secondary-blue);
+}
+
+.main-title {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 40px;
+
+  @media(max-width: 680px) {
+    font-size: 40px;
+    margin-bottom: 30px;
+    max-width: 300px;
+  }
+}
+
+.subtitle {
+  font-size: 32px;
+  margin-bottom: 30px;
+
+  @media(max-width: 680px) {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.text-small {
+  font-size: 11px;
+  color: var(--text-gray);
+  max-width: 300px;
+  margin-bottom: 40px;
+  margin-top: 8px;
+}
+
+
+/* Buttons */
+
+.btn {
+  font-size: 16px;
+  font-weight: 700;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  text-decoration: none;
+  max-width: 300px;
+  width: 100%;
+  padding: 12px;
+  display: block;
+  border-radius: var(--border-radius);
+  text-align: center;
+
+  @media(max-width: 680px) {
+    max-width: 280px;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: rgba(29, 155, 240, 0.9);
+}
+
+.btn-secondary {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid var(--outline-btn);
+  color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+}
+

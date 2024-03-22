@@ -1,44 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  <title>Y. O que está acontecendo / Y</title>
+{% endblock title %}
 
 {% block content %}
-  <article class="col-6 text-start">
-    <h1 style="font-size: 64px; margin-top: -60px;" class="fw-bold">Acontecendo agora</h1>
-    <div class="row mt-5">
-      <div class="col-6">
-        <h2 class="fw-bold">Inscreva-se hoje</h2>
+  <main class="container container-full">
+    <section>
+      <img class="img-control" src="{% static 'images/logo.png' %}" alt="">
+    </section>
+    <section class="content-container">
+      <h1 class="main-title">Acontecendo agora</h1>
+      <div>
+        <h2 class="subtitle">Inscreva-se hoje</h2>
+        <div>
+          <a class="btn btn-primary" href="">Criar conta</a>
+          <p class="text-small">
+            Ao se inscrever, você concorda com os
+            <span class="text-blue">Termos de Serviço</span> e a 
+            <span class="text-blue">Política de Privacidade</span>, incluindo o
+            <span class="text-blue">Uso de Cookies</span>.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-6 d-grid">
-        <a class="btn btn-primary btn-lg d-block" style="border-radius: 20px;" href="{% url 'signup' %}">
-          Criar conta
-        </a>
+      <div>
+        <h3 class="title">Já tem uma conta?</h3>
+        <a class="btn btn-secondary" href="">Entrar</a>
       </div>
-    </div>
-    <div class="row mt-1">
-      <div class="col-6">
-        <p class="text-secondary" style="font-size: 11px;">
-          Ao se inscrever, você concorda com os
-          <span class="text-primary">Termos de Serviço</span>
-          e a 
-          <span class="text-primary">Política de Privacidade</span>, 
-          incluindo o 
-          <span class="text-primary">Uso de Cookies</span>.
-        </p>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-6">
-        <h5>Já tem uma conta?</h5>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-6 d-grid">
-        <a class="btn btn-outline-primary btn-lg" style="border-radius: 20px;" href="{% url 'signin' %}">
-          Entrar
-        </a>
-      </div>
-    </div>
-  </article>
-
+    </section>
+  </main>
 {% endblock content %}
