@@ -3,8 +3,10 @@
   --bg-color: #000;
   --white: rgb(231, 233, 234); 
   --primary-blue: rgb(29, 155, 240);
-  --secondary-blue: #1d9be1;
+  --secondary-blue: rgba(29, 155, 240, 0.9);
   --outline-btn: rgb(83, 100, 113);
+  --light-blue: rgba(29, 155, 240, 0.1);
+  --light-gray: rgba(235, 235, 235, 0.1);
   --text-gray: #71767b;
 }
 
@@ -132,6 +134,7 @@ section {
   display: block;
   border-radius: var(--border-radius);
   text-align: center;
+  cursor: pointer;
 
   @media(max-width: 680px) {
     max-width: 280px;
@@ -144,7 +147,7 @@ section {
 }
 
 .btn-primary:hover {
-  background-color: rgba(29, 155, 240, 0.9);
+  background-color: var(--secondary-blue);
 }
 
 .btn-secondary {
@@ -154,6 +157,46 @@ section {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(29, 155, 240, 0.1);
+  background-color: var(--light-blue);
 }
 
+/* Forms */
+
+.form-default {
+  max-width: 400px;
+  width: 100%;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 6px;
+  padding: 12px 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--light-gray);
+  background-color: transparent;
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.form-label {
+  font-size: 11px;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+}
+
+.form-input:focus {
+  outline: 2px solid var(--secondary-blue);
+}
+
+.form-btn {
+  max-width: 400px;
+  margin-bottom: 40px;
+}
