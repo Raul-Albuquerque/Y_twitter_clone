@@ -8,14 +8,14 @@
 {% block content %}
   <main class="container container-full">
     <section>
-      <img class="img-control" src="{% static 'images/logo.png' %}" alt="">
+      <img class="img-control" src="{% static 'images/logo.png' %}" alt="y logo">
     </section>
     <section class="content-container">
       <h1 class="main-title">Acontecendo agora</h1>
       <div>
         <h2 class="subtitle">Inscreva-se hoje</h2>
         <div>
-          <a class="btn btn-primary" href="">Criar conta</a>
+          <a class="btn btn-primary" href="{% url 'signup' %}">Criar conta</a>
           <p class="text-small">
             Ao se inscrever, você concorda com os
             <span class="text-blue">Termos de Serviço</span> e a 
@@ -26,7 +26,7 @@
       </div>
       <div>
         <h3 class="title">Já tem uma conta?</h3>
-        <a class="btn btn-secondary" href="">Entrar</a>
+        <a class="btn btn-secondary" href="{% url 'signin' %}">Entrar</a>
       </div>
     </section>
   </main>

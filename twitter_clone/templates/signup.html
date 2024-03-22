@@ -11,7 +11,7 @@
 
   <main class="container container-full">
     <section>
-      <img class="img-control" src="{% static 'images/logo.png' %}" alt="">
+      <img class="img-control" src="{% static 'images/logo.png' %}" alt="y logo">
     </section>
     <section class="content-container">
       <h2 class="subtitle">Criar sua Conta</h2>
@@ -34,6 +34,9 @@
         </div>
         <button class="btn btn-primary form-btn" type="button">Cadastrar</button>
       </form>
+      <div>
+        <p class="text-small">Já tem uma conta? <a class="text-blue" href="{% url 'signin' %}">Faça login</a></p>
+      </div>
     </section>
   </main>
   

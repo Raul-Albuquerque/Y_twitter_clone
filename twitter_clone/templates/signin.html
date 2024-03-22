@@ -11,7 +11,7 @@
 
   <main class="container container-full">
     <section>
-      <img class="img-control" src="{% static 'images/logo.png' %}" alt="">
+      <img class="img-control" src="{% static 'images/logo.png' %}" alt="y logo">
     </section>
     <section class="content-container">
       <h2 class="subtitle">Entrar no Y</h2>
@@ -27,7 +27,7 @@
         <button class="btn btn-primary form-btn" type="button">Entrar</button>
       </form>
       <div>
-        <p class="text-small">Não tem uma conta? <a class="text-blue" href="">Inscreva-se</a></p>
+        <p class="text-small">Não tem uma conta? <a class="text-blue" href="{% url 'signup' %}">Inscreva-se</a></p>
       </div>
     </section>
   </main>
