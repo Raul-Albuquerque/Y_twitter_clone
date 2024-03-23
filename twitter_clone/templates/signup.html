@@ -15,12 +15,7 @@
     </section>
     <section class="content-container">
       <h2 class="subtitle">Criar sua Conta</h2>
-      <form class="form-default" method='POST' action='{% url 'feed' %}'>
-        {% comment %} <input type="email" class="form-input" id="usuario" placeholder="Usuário">
-        <input type="email" class="form-input" id="nome" placeholder="Nome">
-        <input type="email" class="form-input" id="sobrenome" placeholder="Sobrenome">
-        <input type="email" class="form-input" id="email" placeholder="E-mail">
-        <input type="email" class="form-input" id="senha" placeholder="Senha"> {% endcomment %}
+      <form class="form-default" method='POST' action='{% url 'signup' %}'>
         {% csrf_token %}
         {{ form }}
         <div class="input-group">
