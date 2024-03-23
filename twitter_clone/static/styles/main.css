@@ -200,3 +200,15 @@ section {
   max-width: 400px;
   margin-bottom: 40px;
 }
+
+input:invalid + span::after {
+  position: absolute;
+  content: "✖";
+  padding-left: 5px;
+}
+
+input:valid + span::after {
+  position: absolute;
+  content: "✓";
+  padding-left: 5px;
+}

@@ -15,12 +15,14 @@
     </section>
     <section class="content-container">
       <h2 class="subtitle">Criar sua Conta</h2>
-      <form class="form-default">
-        <input type="email" class="form-input" id="usuario" placeholder="Usuário">
+      <form class="form-default" method='POST' action='{% url 'feed' %}'>
+        {% comment %} <input type="email" class="form-input" id="usuario" placeholder="Usuário">
         <input type="email" class="form-input" id="nome" placeholder="Nome">
         <input type="email" class="form-input" id="sobrenome" placeholder="Sobrenome">
         <input type="email" class="form-input" id="email" placeholder="E-mail">
-        <input type="email" class="form-input" id="senha" placeholder="Senha">
+        <input type="email" class="form-input" id="senha" placeholder="Senha"> {% endcomment %}
+        {% csrf_token %}
+        {{ form }}
         <div class="input-group">
           <input type="checkbox" class="" id="termos">
           <label class="form-label" for="termos">
@@ -32,7 +34,7 @@
             na nossa Política de Privacidade.
           </label>
         </div>
-        <button class="btn btn-primary form-btn" type="button">Cadastrar</button>
+        <button class="btn btn-primary form-btn" type="submit">Cadastrar</button>
       </form>
       <div>
         <p class="text-small">Já tem uma conta? <a class="text-blue" href="{% url 'signin' %}">Faça login</a></p>
