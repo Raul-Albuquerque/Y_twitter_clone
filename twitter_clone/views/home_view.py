@@ -10,5 +10,3 @@ def base(request):
 def home(request):
   return render(request, 'home.html')
 
-def feed(request):
-  return render(request, 'feed.html')
