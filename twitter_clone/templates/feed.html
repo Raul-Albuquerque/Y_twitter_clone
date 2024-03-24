@@ -10,12 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/feed.css' %}" />
   <title>Home / Y</title>
 </head>
 <body>
   <div class="container-feed">
-    <aside class="feed-nav">
+    <aside class="feed-aside">
       <div class="nav-a-img-container">
         <a href="">
           <img class="img-logo-feed" src="{% static 'images/logo.png' %}" alt="y logo">
@@ -49,7 +49,7 @@
           </li>
         </ul>
       </nav>
-      <div class="profile-container">
+      <a href="" class="profile-container">
         <div class="profile-img-container">
           <img src="{% static 'images/raul.jpg' %}" alt="">
         </div>
@@ -57,10 +57,46 @@
           <span class="profile-name">Raul Albuquerque</span>
           <span class="profile-username">@raulalbuquerque</span>
         </div>
-      </div>
+      </a>
     </aside>
-    <main class="feed-main">Principal</main>
-    <aside class="feed-social-nav">Página 2</aside>
+    <main class="feed-main">
+      conteúdo principal
+    </main>
+    <aside class="feed-aside">
+      <section class="tofollow">
+        <h2 class="tofollow-title">Pessoas para seguir</h2>
+        <a href="" class="profile-container no-border">
+          <div class="profile-img-container">
+            <img src="{% static 'images/raul.jpg' %}" alt="">
+          </div>
+          <div class="tofollow-info-container">
+            <span class="profile-name downsize-text">Raul Albuquerque</span>
+            <span class="profile-username downsize-text">@raulalbuquerque</span>
+          </div>
+          <button class="follow-btn">Seguir</button>
+        </a>
+        <a href="" class="profile-container no-border">
+          <div class="profile-img-container">
+            <img src="{% static 'images/raul.jpg' %}" alt="">
+          </div>
+          <div class="tofollow-info-container">
+            <span class="profile-name downsize-text">Raul Albuquerque</span>
+            <span class="profile-username downsize-text">@raulalbuquerque</span>
+          </div>
+          <button class="follow-btn">Seguir</button>
+        </a>
+        <a href="" class="profile-container no-border">
+          <div class="profile-img-container">
+            <img src="{% static 'images/raul.jpg' %}" alt="">
+          </div>
+          <div class="tofollow-info-container">
+            <span class="profile-name downsize-text">Raul Albuquerque</span>
+            <span class="profile-username downsize-text">@raulalbuquerque</span>
+          </div>
+          <button class="follow-btn">Seguir</button>
+        </a>
+      </section>
+    </aside>
   </div>
 </body>
 </html>
