@@ -10,8 +10,5 @@ def base(request):
 def home(request):
   return render(request, 'home.html')
 
-def signin(request):
-  return render(request, 'signin.html')
-
 def feed(request):
   return render(request, 'feed.html')

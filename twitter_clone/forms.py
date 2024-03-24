@@ -21,6 +21,10 @@ class SignUpForm(forms.Form):
 # SIGNIN FORM
   
 class SignInForm(forms.Form):
-  usuario = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Usuário'}))
-  senha = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Senha'}))
+  usuario = forms.CharField(max_length=150, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'usuario', 'required': True}))
+  senha = forms.CharField(max_length=190, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Senha', 'required': True, 'type': 'password'}))
 
+  def __init__(self, *args, **kwargs):
+        super(SignInForm, self).__init__(*args, **kwargs)
+        self.fields['usuario'].label = False
+        self.fields['senha'].label = False
