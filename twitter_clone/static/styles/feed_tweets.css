@@ -91,6 +91,7 @@ body {
 
 .author-name {
   color: var(--white);
+  margin-right: 4px;
 }
 
 .author-username {
