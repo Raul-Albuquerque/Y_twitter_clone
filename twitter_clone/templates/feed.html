@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="{% static 'styles/feed.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/feed_tweets.css' %}" />
   <title>Home / Y</title>
 </head>
 <body>
@@ -60,7 +61,8 @@
       </a>
     </aside>
     <main class="feed-main">
-      conteúdo principal
+      {% block content %}
+      {% endblock content %}
     </main>
     <aside class="feed-aside">
       <section class="tofollow">
@@ -73,7 +75,7 @@
             <span class="profile-name downsize-text">Raul Albuquerque</span>
             <span class="profile-username downsize-text">@raulalbuquerque</span>
           </div>
-          <button class="follow-btn">Seguir</button>
+          <button class="btn">Seguir</button>
         </a>
         <a href="" class="profile-container no-border">
           <div class="profile-img-container">
@@ -83,7 +85,7 @@
             <span class="profile-name downsize-text">Raul Albuquerque</span>
             <span class="profile-username downsize-text">@raulalbuquerque</span>
           </div>
-          <button class="follow-btn">Seguir</button>
+          <button class="btn">Seguir</button>
         </a>
         <a href="" class="profile-container no-border">
           <div class="profile-img-container">
@@ -93,7 +95,7 @@
             <span class="profile-name downsize-text">Raul Albuquerque</span>
             <span class="profile-username downsize-text">@raulalbuquerque</span>
           </div>
-          <button class="follow-btn">Seguir</button>
+          <button class="btn">Seguir</button>
         </a>
       </section>
     </aside>

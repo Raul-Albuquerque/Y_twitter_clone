@@ -38,6 +38,8 @@ body {
   width: 100%;
   padding: 16px 30px;
   height: 100dvh;
+  position: sticky;
+  top: 0;
 }
 
 
@@ -160,7 +162,7 @@ body {
   font-size: 12px;
 }
 
-.follow-btn {
+.btn {
   text-decoration: none;
   color: var(--bg-color);
   padding: 6px 12px;
@@ -169,8 +171,18 @@ body {
   background-color: var(--white);
   border-radius: var(--border-radius);
   cursor: pointer;
-  z-index: 1;
   margin-left: 40px;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-blue);
 }
 
 .tofollow-info-container {
@@ -186,6 +198,7 @@ body {
 /* Main content */
 
 .feed-main {
-  background-color: red;
   border: 1px solid var(--outline-btn);
+  border-top: none;
+  overflow-y: auto;
 }
