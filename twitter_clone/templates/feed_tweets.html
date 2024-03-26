@@ -6,8 +6,10 @@
     <div class="profile-img-container">
       <img src="{% static 'images/raul.jpg' %}" alt="">
     </div>
-    <form action="">
-      <textarea class="new-tweet-textarea" name="" id="" placeholder="O que está acontecendo?!"></textarea>
+    <form action="" method="POST" action="{% url 'feed_tweets' %}">
+      {% csrf_token %}
+      {{ form }}
+      {% comment %} <textarea class="new-tweet-textarea" name="" id="" placeholder="O que está acontecendo?!"></textarea> {% endcomment %}
       <button type="submit" class="btn btn-primary">Postar</button>
     </form>
   </section>

@@ -202,3 +202,11 @@ body {
   border-top: none;
   overflow-y: auto;
 }
+
+.hide {
+  display: none;
+}
+
+.pd-r {
+  margin-right: 16px;
+}

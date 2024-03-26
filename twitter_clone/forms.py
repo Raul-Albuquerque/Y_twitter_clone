@@ -1,4 +1,5 @@
 from django import forms
+from .models import Profile, Tweet
 
 
 # SIGNUP FORM
@@ -28,3 +29,17 @@ class SignInForm(forms.Form):
         super(SignInForm, self).__init__(*args, **kwargs)
         self.fields['usuario'].label = False
         self.fields['senha'].label = False
+
+
+# POST TWEET FORM
+
+class TweetForm(forms.ModelForm):
+  content = forms.CharField(required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "What is happening?!", "class": "new-tweet-textarea", "required": True}))
+
+  class Meta:
+      model = Tweet
+      exclude = {"user", "likes"}
+
+  def __init__(self, *args, **kwargs):
+        super(TweetForm, self).__init__(*args, **kwargs)
+        self.fields['content'].label = False
