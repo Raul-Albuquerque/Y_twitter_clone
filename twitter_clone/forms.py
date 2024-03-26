@@ -34,7 +34,7 @@ class SignInForm(forms.Form):
 # POST TWEET FORM
 
 class TweetForm(forms.ModelForm):
-  content = forms.CharField(required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "What is happening?!", "class": "new-tweet-textarea", "required": True}))
+  content = forms.CharField(max_length=260, required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "What is happening?!", "class": "new-tweet-textarea", "required": True, "max-length":260}))
 
   class Meta:
       model = Tweet

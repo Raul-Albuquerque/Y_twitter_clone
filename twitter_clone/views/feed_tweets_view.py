@@ -14,7 +14,10 @@ def feed_tweets(request):
         tweet = form.save(commit=False)
         tweet.user = request.user
         tweet.save()
-        HttpResponse("Tweet salvo com sucesso.")
+        form = TweetForm()
+        return redirect("feed_tweets")
+      else:
+        form = TweetForm()
     tweets = Tweet.objects.all().order_by("-tweet_date")
     return render(request, 'feed_tweets.html', {"tweets": tweets, "form": form})
   else:

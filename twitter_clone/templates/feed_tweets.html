@@ -6,36 +6,46 @@
     <div class="profile-img-container">
       <img src="{% static 'images/raul.jpg' %}" alt="">
     </div>
-    <form action="" method="POST" action="{% url 'feed_tweets' %}">
-      {% csrf_token %}
-      {{ form }}
-      {% comment %} <textarea class="new-tweet-textarea" name="" id="" placeholder="O que está acontecendo?!"></textarea> {% endcomment %}
-      <button type="submit" class="btn btn-primary">Postar</button>
-    </form>
+    {% if form %}
+    
+      <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Postar</button>
+      </form>
+
+    {% endif %}
   </section>
-  <section class="new-tweet-container">
-    <div class="profile-img-container">
-      <img src="{% static 'images/history.jpg' %}" alt="">
-    </div>
-    <div class="tweet-container">
-      <div class="author-container">
-        <span class="text author-name">Historic Vids</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-          <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
-        </svg>
-        <span class="text author-username">@historyinmemes</span>
-        <span class="text tweet-date">- 15h</span>
+  {% for tweet in tweets %}
+  
+    <section class="new-tweet-container">
+      <div class="profile-img-container">
+        <img src="{% static 'images/history.jpg' %}" alt="">
       </div>
-      <div class="tweet-content">
-        <p class="text tweet-text">
-          How deep is it?
-        </p>
-        <div class="like-container">
-          <small class="like-counter">500 curtidas</small>
-          <button type="submit" class="btn btn-primary hide">Like</button>
-          <button type="submit" class="btn">Dislike</button>
+      <div class="tweet-container">
+        <div class="author-container">
+          <span class="text author-name">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+            <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+          </svg>
+          <span class="text author-username">@{{ tweet.user.username }}</span>
+          <span class="text tweet-date"> - {{ tweet.tweet_date }}</span>
         </div>
-      </div>
-    </div>    
-  </section>
+        <div class="tweet-content">
+          <p class="text tweet-text">
+            {{ tweet.content }}
+          </p>
+          <div class="like-container">
+            <button class="delete-btn">Delete</button>
+            <div>
+              <small class="like-counter">500 curtidas</small>
+              <button type="submit" class="btn btn-primary">Like</button>
+              <button type="submit" class="dislike-btn">Dislike</button>
+            </div>            
+          </div>
+        </div>
+      </div>    
+    </section>
+  
+  {% endfor %}
 {% endblock content %}
