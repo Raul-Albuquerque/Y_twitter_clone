@@ -101,7 +101,8 @@ body {
   justify-content: start;
   text-decoration: none;
   padding: 12px 10px;
-  border-radius: var(--border-radius); 
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
 }
 
 .profile-container:hover {
@@ -117,24 +118,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: red;
 }
 
 .profile-img-container > img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  object-fit: fill;
+  object-fit: cover;
   /* margin: 0 auto; */
 }
 
 .profile-info-container {
   margin-left: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .profile-name {
   font-size: 16px;
   font-weight: 700;
   color: var(--white);
+  text-transform: capitalize;
 }
 
 .profile-username {
@@ -207,6 +214,15 @@ body {
   display: none;
 }
 
-.pd-r {
-  margin-right: 16px;
+.pd-l {
+  margin-left: 10px;
+}
+
+
+.profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-color);
+  object-fit: cover;
 }

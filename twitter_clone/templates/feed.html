@@ -38,20 +38,23 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" class="bi bi-person-fill" viewBox="0 0 16 16">
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
               </svg>
-              <small>Perfil</small>
+              <small>Profile</small>
             </a>
           </li>
         </ul>
       </nav>
       <a href="{% url 'profile' %}" class="profile-container">
-        <div class="profile-img-container">
-          <img src="{% static 'images/raul.jpg' %}" alt="">
-        </div>
+          {% if profile.profile_image.url %}
+            <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
+          {% else %}
+            <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
+          {% endif %}
         <div class="profile-info-container">
-          <span class="profile-name">Raul Albuquerque</span>
-          <span class="profile-username">@raulalbuquerque</span>
-        </div>
+          <span class="profile-name">{{ profile.user.first_name }} {{ profile.user.last_name }}</span>
+          <span class="profile-username">@{{ profile.user.username }}</span>
+        </div> 
       </a>
+      <a href="" class="delete-btn pd-l">Logout</a>
     </aside>
     <main class="feed-main">
       {% block content %}
@@ -59,7 +62,7 @@
     </main>
     <aside class="feed-aside">
       <section class="tofollow">
-        <h2 class="tofollow-title">Pessoas para seguir</h2>
+        <h2 class="tofollow-title">Who to follow</h2>
         <a href="" class="profile-container no-border">
           <div class="profile-img-container">
             <img src="{% static 'images/raul.jpg' %}" alt="">
@@ -72,8 +75,8 @@
             </span>
             <span class="profile-username downsize-text">@raulalbuquerque</span>
           </div>
-          <button class="btn hide">Follow</button>
-          <button class="btn">Seguir</button>
+          <button class="btn">Follow</button>
+          <button class="btn hide">Unfollow</button>
         </a>
         <a href="" class="profile-container no-border">
           <div class="profile-img-container">
@@ -87,8 +90,8 @@
             </span>
             <span class="profile-username downsize-text">@raulalbuquerque</span>
           </div>
-          <button class="btn hide">Follow</button>
-          <button class="btn">Seguir</button>
+          <button class="btn">Follow</button>
+          <button class="btn hide">Unfollow</button>
         </a>
         <a href="" class="profile-container no-border">
           <div class="profile-img-container">
@@ -102,8 +105,8 @@
             </span>
             <span class="profile-username downsize-text">@raulalbuquerque</span>
           </div>
-          <button class="btn hide">Follow</button>
-          <button class="btn">Seguir</button>
+          <button class="btn">Follow</button>
+          <button class="btn hide">Unfollow</button>
         </a>
       </section>
     </aside>

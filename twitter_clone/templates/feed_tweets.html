@@ -4,14 +4,18 @@
 {% block content %}
   <section class="new-tweet-container">
     <div class="profile-img-container">
-      <img src="{% static 'images/raul.jpg' %}" alt="">
+      {% if profile.profile_image.url %}
+        <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
+      {% else %}
+        <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
+      {% endif %}
     </div>
     {% if form %}
     
       <form method="POST">
         {% csrf_token %}
         {{ form }}
-        <button type="submit" class="btn btn-primary">Postar</button>
+        <button type="submit" class="btn btn-primary">Post</button>
       </form>
 
     {% endif %}
@@ -20,7 +24,11 @@
   
     <section class="new-tweet-container">
       <div class="profile-img-container">
-        <img src="{% static 'images/history.jpg' %}" alt="">
+        {% if profile.profile_image.url %}
+          <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
+        {% else %}
+          <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
+        {% endif %}
       </div>
       <div class="tweet-container">
         <div class="author-container">
@@ -38,7 +46,7 @@
           <div class="like-container">
             <button class="delete-btn">Delete</button>
             <div>
-              <small class="like-counter">500 curtidas</small>
+              <small class="like-counter">500 Likes</small>
               <button type="submit" class="btn btn-primary">Like</button>
               <button type="submit" class="dislike-btn">Dislike</button>
             </div>            

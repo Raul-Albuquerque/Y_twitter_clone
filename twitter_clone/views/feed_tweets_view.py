@@ -4,10 +4,11 @@ from django.http import HttpResponse
 
 
 from ..forms import TweetForm
-from ..models import Tweet
+from ..models import Tweet, Profile
 
 def feed_tweets(request):
   if request.user.is_authenticated:
+    profile = Profile.objects.get(user_id=request.user.id)
     form = TweetForm(request.POST or None)
     if request.method == "POST":
       if form.is_valid():
@@ -19,6 +20,6 @@ def feed_tweets(request):
       else:
         form = TweetForm()
     tweets = Tweet.objects.all().order_by("-tweet_date")
-    return render(request, 'feed_tweets.html', {"tweets": tweets, "form": form})
+    return render(request, 'feed_tweets.html', {"tweets": tweets, "form": form, "profile": profile})
   else:
     return redirect("home")

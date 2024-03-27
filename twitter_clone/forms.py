@@ -43,3 +43,18 @@ class TweetForm(forms.ModelForm):
   def __init__(self, *args, **kwargs):
         super(TweetForm, self).__init__(*args, **kwargs)
         self.fields['content'].label = False
+
+
+# EDIT PROFILE FORM
+
+class EditProfileForm(forms.ModelForm):
+    bio = forms.CharField(max_length=220, required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "Bio", "class": "edit-profile-textarea", "max-length":220}))
+    profile_image = forms.ImageField(required=False, label="Add Profile Picture")
+
+    class Meta:
+        model = Profile
+        exclude = {"user", "follows", "creation_date"}
+
+    def __init__(self, *args, **kwargs):
+        super(EditProfileForm, self).__init__(*args, **kwargs)
+        self.fields['bio'].label = False
