@@ -54,7 +54,7 @@
           <span class="profile-username">@{{ profile.user.username }}</span>
         </div> 
       </a>
-      <a href="" class="delete-btn pd-l">Logout</a>
+      <a href="{% url 'logout' %}" class="delete-btn pd-l">Logout</a>
     </aside>
     <main class="feed-main">
       {% block content %}
