@@ -44,7 +44,11 @@
             {{ tweet.content }}
           </p>
           <div class="like-container">
-            <button class="delete-btn">Delete</button>
+            {% if request.user.username == profile.user.username %}
+              <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn">Delete</a>
+            {% else %}
+              <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn hidden">Delete</a>
+            {% endif %}
             <div>
               {% if tweet.like_amount > 0 %}
                 <small class="like-counter">
