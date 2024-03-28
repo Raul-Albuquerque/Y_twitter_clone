@@ -46,9 +46,22 @@
           <div class="like-container">
             <button class="delete-btn">Delete</button>
             <div>
-              <small class="like-counter">500 Likes</small>
-              <button type="submit" class="btn btn-primary">Like</button>
-              <button type="submit" class="dislike-btn">Dislike</button>
+              {% if tweet.like_amount > 0 %}
+                <small class="like-counter">
+                  {{ tweet.like_amount }} 
+                  {% if tweet.like_amount == 1 %}
+                    Like
+                  {% elif tweet.like_amount > 1 %}
+                    Likes
+                  {% endif %}
+                </small>
+              {% endif %}
+              
+              {% if user in tweet.likes.all %}
+                <a href="{% url 'like_tweet' tweet.id %}" class="dislike-btn">Dislike</a>
+              {% else %}
+                <a href="{% url 'like_tweet' tweet.id %}" class="btn btn-primary">Like</a>
+              {% endif %}              
             </div>            
           </div>
         </div>
