@@ -18,8 +18,8 @@
       <h3 class="user-info-username">@{{ profile.user.username }}</h3>
     </div>
     <div class="user-info-follow">
-      <span><small>10</small> Following</span>
-      <span><small>10</small> Followers</span>
+      <span><small>{{ followers }}</small> Following</span>
+      <span><small>{{ following }}</small> Followers</span>
     </div>
     {% if profile.bio %}
     <p class="user-info-bio">

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.db.models import Count
 from django.contrib.auth.models import User
 
 from ..models import Profile
@@ -10,6 +11,9 @@ def feed_profile(request):
     user = User.objects.get(id=request.user.id)
     profile = Profile.objects.get(user_id=request.user.id)
 
+    following = Profile.objects.get(user_id=request.user.id).follows.count() - 1
+    followers = Profile.objects.get(user_id=request.user.id).followed_by.count() - 1
+
     if request.method == "POST":
       profile_form = EditProfileForm(request.POST or None, request.FILES or None, instance=profile)
       if profile_form.is_valid():
@@ -19,7 +23,7 @@ def feed_profile(request):
         return redirect("profile")
       
     profile_form = EditProfileForm()
-    return render(request, "feed_profile.html", {"form": profile_form, "profile": profile})
+    return render(request, "feed_profile.html", {"form": profile_form, "profile": profile, "following": following, "followers": followers})
   
   else:
     return redirect("home")
