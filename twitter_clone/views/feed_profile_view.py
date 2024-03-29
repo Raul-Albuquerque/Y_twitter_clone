@@ -12,8 +12,8 @@ def feed_profile(request):
     profile = Profile.objects.get(user_id=request.user.id)
     profiles = Profile.objects.exclude(user=request.user)
 
-    following = Profile.objects.get(user_id=request.user.id).follows.count() - 1
-    followers = Profile.objects.get(user_id=request.user.id).followed_by.count() - 1
+    followers = Profile.objects.get(user_id=request.user.id).follows.count() - 1
+    following = Profile.objects.get(user_id=request.user.id).followed_by.count() - 1
 
     if request.method == "POST":
       profile_form = EditProfileForm(request.POST or None, request.FILES or None, instance=profile)

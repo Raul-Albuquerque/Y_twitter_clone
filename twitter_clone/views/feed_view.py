@@ -12,8 +12,8 @@ def feed(request):
     profile = Profile.objects.get(user_id=request.user.id)
     profiles = Profile.objects.exclude(user=request.user)
 
-    user_follows = user.profile.follows.filter(id=profile.id).exists()
+    following = Profile.objects.get(user_id=request.user.id)
 
-    return render(request, "feed.html", {"profile": profile, "profiles": profiles, "follows": user_follows})
+    return render(request, "feed.html", {"profile": profile, "profiles": profiles, "following": following})
 
   return redirect("home")

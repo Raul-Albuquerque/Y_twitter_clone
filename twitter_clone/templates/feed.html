@@ -44,8 +44,8 @@
         </ul>
       </nav>
       <a href="{% url 'profile' %}" class="profile-container">
-          {% if profile.profile_image.url %}
-            <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
+          {% if profile.profile_image and profile.profile_image.url %}
+            <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
           {% else %}
             <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
           {% endif %}
@@ -67,10 +67,10 @@
           {% for profile in profiles %}          
             <a href="" class="profile-container no-border">
               <div class="profile-img-container">
-                {% if profile.profile_image.url %}
-                  <img src="{% static profile.profile_image.url %}" alt="">
+                {% if profile.profile_image and profile.profile_image.url %}
+                  <img class="user-info-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
                 {% else %}
-                  <img src="{% static 'images/logo.png' %}" alt="">
+                  <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
                 {% endif %}
               </div>
               <div class="tofollow-info-container">
@@ -81,10 +81,10 @@
                 </span>
                 <span class="profile-username downsize-text">@{{ profile.user.username }}</span>
               </div>
-              {% if follows == True %}
+              {% if profile in following.followed_by %}
                 <a href="{% url 'unfollow' profile.user.id %}" class="btn">Unfollow</a>
               {% else %}
-                <a href="{% url 'follow' profile.user.id %}" class="btn hide">Follow</a>
+                <a href="{% url 'follow' profile.user.id %}" class="btn">Follow</a>
               {% endif %}
             </a>
           {% endfor %}

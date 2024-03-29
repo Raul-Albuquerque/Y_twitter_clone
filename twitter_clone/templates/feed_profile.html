@@ -4,7 +4,7 @@
 {% block content %}
   <section class="user-profile-container">
     <div class="user-info-container">
-      {% if profile.profile_image.url %}
+      {% if profile.profile_image and profile.profile_image.url %}
         <img class="user-info-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
       {% else %}
         <img class="user-info-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">

@@ -24,9 +24,8 @@ def signup(request):
       else:
         user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email, password=password)
         user.save()
-        # user.authenticate(username=username, password=password)
-        # login(request,username=username, password=password)
-        return HttpResponse('Usuário cadastrado com sucesso')
-        # return redirect('feed')
+        user.authenticate(username=username, password=password)
+        login(request,username=username, password=password)
+        return redirect('feed_tweets')
     else:
       return HttpResponse('Algo deu errado')

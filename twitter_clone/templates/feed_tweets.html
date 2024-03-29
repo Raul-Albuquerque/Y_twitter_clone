@@ -4,7 +4,7 @@
 {% block content %}
   <section class="new-tweet-container">
     <div class="profile-img-container">
-      {% if profile.profile_image.url %}
+      {% if profile.profile_image and profile.profile_image.url %}
         <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
       {% else %}
         <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
@@ -24,7 +24,7 @@
   
     <section class="new-tweet-container">
       <div class="profile-img-container">
-        {% if profile.profile_image.url %}
+        {% if profile.profile_image and profile.profile_image.url %}
           <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
         {% else %}
           <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
