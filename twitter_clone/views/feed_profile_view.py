@@ -10,6 +10,7 @@ def feed_profile(request):
   if request.user.is_authenticated:
     user = User.objects.get(id=request.user.id)
     profile = Profile.objects.get(user_id=request.user.id)
+    profiles = Profile.objects.exclude(user=request.user)
 
     following = Profile.objects.get(user_id=request.user.id).follows.count() - 1
     followers = Profile.objects.get(user_id=request.user.id).followed_by.count() - 1
@@ -23,7 +24,7 @@ def feed_profile(request):
         return redirect("profile")
       
     profile_form = EditProfileForm()
-    return render(request, "feed_profile.html", {"form": profile_form, "profile": profile, "following": following, "followers": followers})
+    return render(request, "feed_profile.html", {"form": profile_form, "profile": profile, "following": following, "followers": followers, "profiles": profiles})
   
   else:
     return redirect("home")

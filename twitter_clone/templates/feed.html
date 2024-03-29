@@ -63,51 +63,32 @@
     <aside class="feed-aside">
       <section class="tofollow">
         <h2 class="tofollow-title">Who to follow</h2>
-        <a href="" class="profile-container no-border">
-          <div class="profile-img-container">
-            <img src="{% static 'images/raul.jpg' %}" alt="">
-          </div>
-          <div class="tofollow-info-container">
-            <span class="profile-name downsize-text">Raul Albuquerque
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
-              </svg>
-            </span>
-            <span class="profile-username downsize-text">@raulalbuquerque</span>
-          </div>
-          <button class="btn">Follow</button>
-          <button class="btn hide">Unfollow</button>
-        </a>
-        <a href="" class="profile-container no-border">
-          <div class="profile-img-container">
-            <img src="{% static 'images/raul.jpg' %}" alt="">
-          </div>
-          <div class="tofollow-info-container">
-            <span class="profile-name downsize-text">Raul Albuquerque
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
-              </svg>
-            </span>
-            <span class="profile-username downsize-text">@raulalbuquerque</span>
-          </div>
-          <button class="btn">Follow</button>
-          <button class="btn hide">Unfollow</button>
-        </a>
-        <a href="" class="profile-container no-border">
-          <div class="profile-img-container">
-            <img src="{% static 'images/raul.jpg' %}" alt="">
-          </div>
-          <div class="tofollow-info-container">
-            <span class="profile-name downsize-text">Raul Albuquerque
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
-              </svg>
-            </span>
-            <span class="profile-username downsize-text">@raulalbuquerque</span>
-          </div>
-          <button class="btn">Follow</button>
-          <button class="btn hide">Unfollow</button>
-        </a>
+        {% if profile %}
+          {% for profile in profiles %}          
+            <a href="" class="profile-container no-border">
+              <div class="profile-img-container">
+                {% if profile.profile_image.url %}
+                  <img src="{% static profile.profile_image.url %}" alt="">
+                {% else %}
+                  <img src="{% static 'images/logo.png' %}" alt="">
+                {% endif %}
+              </div>
+              <div class="tofollow-info-container">
+                <span class="profile-name downsize-text">{{ profile.user.first_name }} {{ profile.user.last_name }}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                  </svg>
+                </span>
+                <span class="profile-username downsize-text">@{{ profile.user.username }}</span>
+              </div>
+              {% if follows == True %}
+                <a href="{% url 'unfollow' profile.user.id %}" class="btn">Unfollow</a>
+              {% else %}
+                <a href="{% url 'follow' profile.user.id %}" class="btn hide">Follow</a>
+              {% endif %}
+            </a>
+          {% endfor %}
+        {% endif %}
       </section>
     </aside>
   </div>

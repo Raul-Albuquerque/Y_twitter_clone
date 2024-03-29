@@ -10,6 +10,7 @@ def feed_tweets(request):
   if request.user.is_authenticated:
     profile = Profile.objects.get(user_id=request.user.id)
     form = TweetForm(request.POST or None)
+    profiles = Profile.objects.exclude(user=request.user)
     if request.method == "POST":
       if form.is_valid():
         tweet = form.save(commit=False)
@@ -20,6 +21,6 @@ def feed_tweets(request):
       else:
         form = TweetForm()
     tweets = Tweet.objects.all().order_by("-tweet_date")
-    return render(request, 'feed_tweets.html', {"tweets": tweets, "form": form, "profile": profile})
+    return render(request, 'feed_tweets.html', {"tweets": tweets, "form": form, "profile": profile, "profiles": profiles})
   else:
     return redirect("home")
