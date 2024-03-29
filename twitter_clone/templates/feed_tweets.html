@@ -12,7 +12,7 @@
     </div>
     {% if form %}
     
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="btn btn-primary">Post</button>
@@ -43,6 +43,9 @@
           <p class="text tweet-text">
             {{ tweet.content }}
           </p>
+          {% if tweet.tweet_image and tweet.tweet_image.url %}
+            <img class="tweet-img" src="{{ tweet.tweet_image.url }}" >
+          {% endif %}
           <div class="like-container">
             {% if request.user.username == profile.user.username %}
               <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn">Delete</a>

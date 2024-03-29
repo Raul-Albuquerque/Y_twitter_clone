@@ -68,6 +68,13 @@ body {
   color: var(--text-gray);
 }
 
+.new-tweet-image {
+  width: 100%;
+  padding: 16px;
+  background-color: transparent;
+  color: var(--white);
+}
+
 .text-small {
   font-size: 11px;
   color: var(--text-gray);
@@ -107,7 +114,16 @@ body {
 .tweet-content {
   width: 100%;
   margin-left: 8px;
-  padding-top: 8px;
+  padding-top: 6px;
+}
+
+.tweet-img {
+  max-width: 520px;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-top: 12px;
+  border: 1px solid var(--light-gray);
 }
 
 .tweet-text {
@@ -115,7 +131,7 @@ body {
   line-height: 24px;
   font-weight: 400;
   color: var(--white);
-  padding-right: 16px;
+  padding-right: 16px; 
 }
 
 .like-container {

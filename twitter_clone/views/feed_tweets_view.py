@@ -9,8 +9,9 @@ from ..models import Tweet, Profile
 def feed_tweets(request):
   if request.user.is_authenticated:
     profile = Profile.objects.get(user_id=request.user.id)
-    form = TweetForm(request.POST or None)
+    form = TweetForm(request.POST or None, request.FILES or None)
     profiles = Profile.objects.exclude(user=request.user)
+
     if request.method == "POST":
       if form.is_valid():
         tweet = form.save(commit=False)

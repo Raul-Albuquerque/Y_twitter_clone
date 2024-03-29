@@ -35,6 +35,7 @@ class SignInForm(forms.Form):
 
 class TweetForm(forms.ModelForm):
   content = forms.CharField(max_length=260, required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "What is happening?!", "class": "new-tweet-textarea", "required": True, "max-length":260}))
+  tweet_image = forms.ImageField(required=False, widget=forms.widgets.FileInput(attrs={"class": "new-tweet-image"}))
 
   class Meta:
       model = Tweet
@@ -43,6 +44,7 @@ class TweetForm(forms.ModelForm):
   def __init__(self, *args, **kwargs):
         super(TweetForm, self).__init__(*args, **kwargs)
         self.fields['content'].label = False
+        self.fields['tweet_image'].label = False
 
 
 # EDIT PROFILE FORM
