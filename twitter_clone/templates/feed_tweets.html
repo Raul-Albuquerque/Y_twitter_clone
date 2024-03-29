@@ -11,69 +11,70 @@
       {% endif %}
     </div>
     {% if form %}
-    
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="btn btn-primary">Post</button>
       </form>
-
     {% endif %}
   </section>
-  {% for tweet in tweets %}
-  
-    <section class="new-tweet-container">
-      <div class="profile-img-container">
-        {% if profile.profile_image and profile.profile_image.url %}
-          <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
-        {% else %}
-          <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
-        {% endif %}
-      </div>
-      <div class="tweet-container">
-        <div class="author-container">
-          <span class="text author-name">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-            <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
-          </svg>
-          <span class="text author-username">@{{ tweet.user.username }}</span>
-          <span class="text tweet-date"> - {{ tweet.tweet_date }}</span>
-        </div>
-        <div class="tweet-content">
-          <p class="text tweet-text">
-            {{ tweet.content }}
-          </p>
-          {% if tweet.tweet_image and tweet.tweet_image.url %}
-            <img class="tweet-img" src="{{ tweet.tweet_image.url }}" >
-          {% endif %}
-          <div class="like-container">
-            {% if request.user.username == profile.user.username %}
-              <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn">Delete</a>
+  {% for follows in profile.follows.all %}
+    {% for tweet in tweets %}
+      {% if tweet.user_id == follows.user.id %}
+        <section class="new-tweet-container">
+          <div class="profile-img-container">
+            {% if profile.profile_image and profile.profile_image.url %}
+              <img class="profile-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
             {% else %}
-              <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn hidden">Delete</a>
+              <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
             {% endif %}
-            <div>
-              {% if tweet.like_amount > 0 %}
-                <small class="like-counter">
-                  {{ tweet.like_amount }} 
-                  {% if tweet.like_amount == 1 %}
-                    Like
-                  {% elif tweet.like_amount > 1 %}
-                    Likes
-                  {% endif %}
-                </small>
-              {% endif %}
-              
-              {% if user in tweet.likes.all %}
-                <a href="{% url 'like_tweet' tweet.id %}" class="dislike-btn">Dislike</a>
-              {% else %}
-                <a href="{% url 'like_tweet' tweet.id %}" class="btn btn-primary">Like</a>
-              {% endif %}              
-            </div>            
           </div>
-        </div>
-      </div>    
-    </section>
-  
+          <div class="tweet-container">
+            <div class="author-container">
+              <span class="text author-name">{{ tweet.user.first_name }} {{ tweet.user.last_name }}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+              </svg>
+              <span class="text author-username">@{{ tweet.user.username }}</span>
+              <span class="text tweet-date"> - {{ tweet.tweet_date }}</span>
+            </div>
+            <div class="tweet-content">
+              <p class="text tweet-text">
+                {{ tweet.content }}
+              </p>
+              {% if tweet.tweet_image and tweet.tweet_image.url %}
+                <img class="tweet-img" src="{{ tweet.tweet_image.url }}" >
+              {% endif %}
+              <div class="like-container">
+                {% if profile.user.id == tweet.user.id %}
+                  <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn">Delete</a>
+                {% else %}
+                  <a href="{% url 'delete_tweet' tweet.id %}" class="delete-btn hidden">Delete</a>
+                {% endif %}
+                <div>
+                  {% if tweet.like_amount > 0 %}
+                    <small class="like-counter">
+                      {{ tweet.like_amount }} 
+                      {% if tweet.like_amount == 1 %}
+                        Like
+                      {% elif tweet.like_amount > 1 %}
+                        Likes
+                      {% endif %}
+                    </small>
+                  {% endif %}
+                  
+                  {% if user in tweet.likes.all %}
+                    <a href="{% url 'like_tweet' tweet.id %}" class="dislike-btn">Dislike</a>
+                  {% else %}
+                    <a href="{% url 'like_tweet' tweet.id %}" class="btn btn-primary">Like</a>
+                  {% endif %}              
+                </div>            
+              </div>
+            </div>
+          </div>    
+        </section>
+      {% endif %}
+    {% endfor %}
   {% endfor %}
+    
 {% endblock content %}
