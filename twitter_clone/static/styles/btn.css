@@ -1,0 +1,130 @@
+:root{
+  --border-radius: 20px;
+  --bg-color: #000;
+  --white: rgb(231, 233, 234); 
+  --primary-blue: rgb(29, 155, 240);
+  --secondary-blue: rgba(29, 155, 240, 0.9);
+  --outline-btn: rgb(83, 100, 113);
+  --light-blue: rgba(29, 155, 240, 0.1);
+  --light-gray: rgba(235, 235, 235, 0.1);
+  --text-gray: #71767b;
+  --red: #dc3545;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--white);
+}
+
+.btn {
+  padding: 6px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  text-align: center;
+  text-decoration: none;
+
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+
+.btn-sm {
+  font-size: 12px;
+}
+
+
+.btn-md {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-md-bold {
+  font-size: 14px;
+}
+
+
+.btn-lg {
+  font-size: 16px;
+  padding: 12px;
+}
+
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-blue);
+}
+
+.btn-secondary {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid var(--outline-btn);
+  color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-blue);
+}
+
+
+.btn-tertiary {
+  color: var(--bg-color);
+  background-color: var(--white);
+}
+
+.btn-tertiary:hover {
+  color: var(--white);
+  background-color: transparent;
+  border: 1px solid var(--white);
+}
+
+
+.btn-delete {
+  color: var(--red);
+  background-color: transparent;
+  border: 1px solid var(--red);
+}
+
+.btn-delete:hover {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+
+.btn-dislike {
+  color: var(--white);
+  background-color: transparent;
+  border: 1px solid var(--white);
+}
+
+.btn-dislike:hover {
+  color: var(--bg-color);
+  background-color: var(--white);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.mg-l {
+  margin-left: 40px;
+}
+
+.mg-l-8 {
+  margin-left: 8px;
+}
+
+.mg-t {
+  margin-top: 16px;
+}
