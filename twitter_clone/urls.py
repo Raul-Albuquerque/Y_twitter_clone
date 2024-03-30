@@ -2,7 +2,19 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import home_view, like_tweet_view, signup_view, signin_view, feed_tweets_view, feed_profile_view, logout_view, delete_tweet_view, follow_view, unfollow_view, to_follow_view
+from .views import (
+    home_view,
+    like_tweet_view,
+    signup_view,
+    signin_view,
+    feed_tweets_view,
+    feed_profile_view,
+    logout_view,
+    delete_tweet_view,
+    follow_view,
+    unfollow_view,
+    to_follow_view,
+)
 
 urlpatterns = [
     path("", home_view.home, name="home"),

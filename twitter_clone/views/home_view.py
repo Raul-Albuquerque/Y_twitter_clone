@@ -4,12 +4,13 @@ from django.contrib import messages
 
 from ..forms import SignUpForm
 
+
 def base(request):
-  return render(request, 'base.html')
+    return render(request, "base.html")
+
 
 def home(request):
-  if request.user.is_authenticated:
-    return redirect('feed_tweets')
-  
-  return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return redirect("feed_tweets")
 
+    return render(request, "home.html")

@@ -67,9 +67,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "db_y",
-        "USER": 'postgres',
-        "PASSWORD": 'kite',
-        "HOST": 'localhost',
+        "USER": "postgres",
+        "PASSWORD": "kite",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }
@@ -115,9 +115,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
