@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="{% static 'styles/feed.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/feed_tweets.css' %}" />
+  <title>Users to Follow / Y</title>
+</head>
+<body>
+  <div class="container-feed">
+    <aside class="mobile-aside">
+      <a href="{% url 'profile' %}" class="feed-nav-a">
+        {% if user.profile.profile_image and user.profile.profile_image.url %}
+          <img class="navbar-mobile-img" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
+        {% else %}
+          <img class="navbar-mobile-img" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
+        {% endif %}
+      </a>
+      <nav class="navbar-mobile">
+        <ul class="navbar-mobile-ul">
+          <li class="navbar-mobile-li">
+            <a href="{% url 'feed_tweets' %}" class="navbar-mobile-a">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#fff" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+              </svg> Home
+            </a>
+          </li>
+          <li class="navbar-mobile-li">
+            <a href="{% url 'to_follow' %}" class="navbar-mobile-a">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#fff" class="bi bi-person-add" viewBox="0 0 16 16">
+                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+              </svg> To Follow
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <a href="{% url 'logout' %}" class="delete-btn">Logout</a>
+    </aside>
+    <aside class="">
+      <section class="tofollow-mobile">
+        <h2 class="tofollow-title">Who to follow</h2>
+        {% if profile %}
+          {% for user_profile in profiles %}          
+            <div class="profile-container no-border relative">
+                {% if user_profile.profile_image and user_profile.profile_image.url %}
+                  <img class="profile-image-follow" src="{{ user_profile.profile_image.url }}" alt="{ user_profile.user.username }">
+                {% else %}
+                  <img class="profile-image-follow" src="{% static 'images/default.jpg' %}" alt="{ user_profile.user.username }">
+                {% endif %}
+              <div class="tofollow-info-container">
+                <span class="profile-name downsize-text">{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+                  </svg>
+                </span>
+                <span class="profile-username downsize-text">@{{ user_profile.user.username }}</span>
+              </div>
+              {% if user_profile in profile.follows.all%}
+                <a href="{% url 'unfollow' user_profile.user.id %}" class="btn-follow">Unfollow</a>
+              {% else %}
+                <a href="{% url 'follow' user_profile.user.id %}" class="btn-follow">Follow</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </section>
+    </aside>
+  </div>
+</body>
+</html>
