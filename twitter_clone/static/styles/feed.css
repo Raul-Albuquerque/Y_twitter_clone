@@ -304,3 +304,12 @@ body {
   list-style: none;
   padding: 0 16px;
 }
+
+.navbar-mobile-a{
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navbar-mobile-a:hover{
+  color: var(--text-gray);
+}
