@@ -44,8 +44,8 @@
         </ul>
       </nav>
       <a href="{% url 'profile' %}" class="profile-container">
-          {% if profile.profile_image and profile.profile_image.url %}
-            <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
+          {% if user.profile.profile_image and user.profile.profile_image.url %}
+            <img class="profile-image" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
           {% else %}
             <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
           {% endif %}

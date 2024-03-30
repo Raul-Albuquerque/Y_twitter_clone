@@ -12,8 +12,8 @@ def feed_profile(request):
     profile = Profile.objects.get(user_id=request.user.id)
     profiles = Profile.objects.exclude(user=request.user)
 
-    followers = Profile.objects.get(user_id=request.user.id).follows.count() - 1
-    following = Profile.objects.get(user_id=request.user.id).followed_by.count() - 1
+    followers = Profile.objects.get(user_id=request.user.id).followed_by.count() - 1
+    following = Profile.objects.get(user_id=request.user.id).follows.count() - 1
 
     if request.method == "POST":
       profile_form = EditProfileForm(request.POST or None, request.FILES or None, instance=profile)
@@ -24,7 +24,7 @@ def feed_profile(request):
         return redirect("profile")
       
     profile_form = EditProfileForm()
-    return render(request, "feed_profile.html", {"form": profile_form, "profile": profile, "following": following, "followers": followers, "profiles": profiles})
+    return render(request, "feed_profile.html", {"form": profile_form, "profile": profile, "following": following, "followers": followers, "profiles": profiles, "user": user})
   
   else:
     return redirect("home")

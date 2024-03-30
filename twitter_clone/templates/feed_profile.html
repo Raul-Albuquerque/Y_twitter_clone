@@ -4,8 +4,8 @@
 {% block content %}
   <section class="user-profile-container">
     <div class="user-info-container">
-      {% if profile.profile_image and profile.profile_image.url %}
-        <img class="user-info-image" src="{{ profile.profile_image.url }}" alt="{ profile.user.username }">
+      {% if user.profile.profile_image and user.profile.profile_image.url %}
+        <img class="user-info-image" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
       {% else %}
         <img class="user-info-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
         {% endif %}
@@ -18,8 +18,12 @@
       <h3 class="user-info-username">@{{ profile.user.username }}</h3>
     </div>
     <div class="user-info-follow">
-      <span><small>{{ followers }}</small> Following</span>
-      <span><small>{{ following }}</small> Followers</span>
+      <span><small>{{ following }}</small> Following</span>
+      {% if followers > 1 %}
+        <span><small>{{ followers }}</small> Followers</span>
+      {% else %}
+        <span><small>{{ followers }}</small> Follower</span>
+      {% endif %}
     </div>
     {% if profile.bio %}
     <p class="user-info-bio">
@@ -33,9 +37,6 @@
       <button class="edit-profile-btn" type="submit">Save</button>
       {{ form }}
     </form>
-    <div class="btn-container">
-      <button class="delete-btn" type="button">Delete profile</button>
-    </div>
   </section>
 
 {% endblock content %}

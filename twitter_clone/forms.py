@@ -50,7 +50,7 @@ class TweetForm(forms.ModelForm):
 # EDIT PROFILE FORM
 
 class EditProfileForm(forms.ModelForm):
-    bio = forms.CharField(max_length=220, required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "Bio", "class": "edit-profile-textarea", "max-length":220}))
+    bio = forms.CharField(max_length=220, required=False, widget=forms.widgets.Textarea(attrs={"placeholder": "Bio", "class": "edit-profile-textarea", "max-length":220, "required": True}))
     profile_image = forms.ImageField(required=False, label="Add Profile Picture")
 
     class Meta:
