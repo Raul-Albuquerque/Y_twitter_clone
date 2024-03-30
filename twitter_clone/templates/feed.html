@@ -65,14 +65,12 @@
         <h2 class="tofollow-title">Who to follow</h2>
         {% if profile %}
           {% for user_profile in profiles %}          
-            <a href="" class="profile-container no-border">
-              <div class="profile-img-container">
+            <div class="profile-container no-border relative">
                 {% if user_profile.profile_image and user_profile.profile_image.url %}
-                  <img class="user-info-image" src="{{ user_profile.profile_image.url }}" alt="{ user_profile.user.username }">
+                  <img class="profile-image-follow" src="{{ user_profile.profile_image.url }}" alt="{ user_profile.user.username }">
                 {% else %}
-                  <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ user_profile.user.username }">
+                  <img class="profile-image-follow" src="{% static 'images/default.jpg' %}" alt="{ user_profile.user.username }">
                 {% endif %}
-              </div>
               <div class="tofollow-info-container">
                 <span class="profile-name downsize-text">{{ user_profile.user.first_name }} {{ user_profile.user.last_name }}
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -82,11 +80,11 @@
                 <span class="profile-username downsize-text">@{{ user_profile.user.username }}</span>
               </div>
               {% if user_profile in profile.follows.all%}
-                <a href="{% url 'unfollow' user_profile.user.id %}" class="btn">Unfollow</a>
+                <a href="{% url 'unfollow' user_profile.user.id %}" class="btn-follow">Unfollow</a>
               {% else %}
-                <a href="{% url 'follow' user_profile.user.id %}" class="btn">Follow</a>
+                <a href="{% url 'follow' user_profile.user.id %}" class="btn-follow">Follow</a>
               {% endif %}
-            </a>
+            </div>
           {% endfor %}
         {% endif %}
       </section>

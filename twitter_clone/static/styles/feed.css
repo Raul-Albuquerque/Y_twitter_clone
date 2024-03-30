@@ -226,3 +226,36 @@ body {
   border: 2px solid var(--bg-color);
   object-fit: cover;
 }
+
+.profile-image-follow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-color);
+  object-fit: cover;
+}
+
+.btn-container-follow {
+  display: flex;
+  justify-content: end;
+  background-color: red;
+}
+
+.btn-follow {
+  text-decoration: none;
+  color: var(--bg-color);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: none;
+  margin-left: 8px;
+  position: absolute;
+  right: 12px;
+}
+
+.relative {
+  position: relative;
+}
