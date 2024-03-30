@@ -5,9 +5,9 @@ from .models import Profile, Tweet
 # SIGNUP FORM
 
 class SignUpForm(forms.Form):
-  usuario = forms.CharField(max_length=150, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'usuario', 'required': True}))
-  nome = forms.CharField(max_length=150, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Nome', 'required': True}))
-  sobrenome = forms.CharField(max_length=150, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Sobrenome', 'required': True}))
+  usuario = forms.CharField(max_length=18, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'usuario', 'required': True, "max-length":18}))
+  nome = forms.CharField(max_length=10, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Nome', 'required': True, "max-length":10}))
+  sobrenome = forms.CharField(max_length=10, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Sobrenome', 'required': True, "max-length":10}))
   email = forms.CharField(max_length=150, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Email', 'required': True}))
   senha = forms.CharField(max_length=190, required=False, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Senha', 'required': True, 'type': 'password'}))
   
