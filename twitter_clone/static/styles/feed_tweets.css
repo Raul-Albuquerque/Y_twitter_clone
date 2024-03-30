@@ -31,10 +31,19 @@ body {
   display: flex;
   align-items: start;
   justify-content: start;
+
+  @media(max-width: 680px) {
+    font-size: 12px;
+    justify-content: center;
+  }
 }
 
 .tweet-container {
   width: 100%;
+
+  @media(max-width: 680px) {
+    width: 80%;
+  }
 }
 
 .new-tweet-container > form {
@@ -95,6 +104,11 @@ body {
   line-height: 16px;
   font-weight: 700;
   color: var(--text-gray);
+
+  @media(max-width: 680px) {
+    font-size: 12px;
+    line-height: 12px;
+  }
 }
 
 .author-name {
@@ -124,6 +138,11 @@ body {
   border-radius: var(--border-radius);
   margin-top: 12px;
   border: 1px solid var(--light-gray);
+
+  @media(max-width: 680px) {
+    max-width: 280px;
+    max-height: 180px;
+  }
 }
 
 .tweet-text {
@@ -131,7 +150,12 @@ body {
   line-height: 24px;
   font-weight: 400;
   color: var(--white);
-  padding-right: 16px; 
+  padding-right: 16px;
+
+  @media(max-width: 680px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 .like-container {
