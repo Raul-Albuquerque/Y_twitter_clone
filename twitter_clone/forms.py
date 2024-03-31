@@ -12,7 +12,7 @@ class SignUpForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
-                "placeholder": "usuario",
+                "placeholder": "Username",
                 "required": True,
                 "max-length": 18,
             }
@@ -24,7 +24,7 @@ class SignUpForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
-                "placeholder": "Nome",
+                "placeholder": "Name",
                 "required": True,
                 "max-length": 10,
             }
@@ -36,7 +36,7 @@ class SignUpForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
-                "placeholder": "Sobrenome",
+                "placeholder": "Last Name",
                 "required": True,
                 "max-length": 10,
             }
@@ -55,7 +55,7 @@ class SignUpForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
-                "placeholder": "Senha",
+                "placeholder": "Password",
                 "required": True,
                 "type": "password",
             }
@@ -79,7 +79,7 @@ class SignInForm(forms.Form):
         max_length=150,
         required=False,
         widget=forms.TextInput(
-            attrs={"class": "form-input", "placeholder": "usuario", "required": True}
+            attrs={"class": "form-input", "placeholder": "Username", "required": True}
         ),
     )
     senha = forms.CharField(
@@ -88,7 +88,7 @@ class SignInForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
-                "placeholder": "Senha",
+                "placeholder": "Password",
                 "required": True,
                 "type": "password",
             }

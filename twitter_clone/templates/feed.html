@@ -18,11 +18,13 @@
 <body>
   <div class="container-feed">
     <aside class="mobile-aside">
+      <a href="{% url 'profile' %}">
       {% if user.profile.profile_image and user.profile.profile_image.url %}
         <img class="navbar-mobile-img" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
       {% else %}
         <img class="navbar-mobile-img" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
       {% endif %}
+      </a>
       <nav class="navbar-mobile">
         <ul class="navbar-mobile-ul">
           <li class="navbar-mobile-li">
@@ -72,7 +74,7 @@
           </li>
         </ul>
       </nav>
-      <a href="{% url 'profile' %}" class="profile-container">
+      <a href="{% url 'profile' %}" class="profile-container mg-b">
           {% if user.profile.profile_image and user.profile.profile_image.url %}
             <img class="profile-image" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
           {% else %}
@@ -91,7 +93,7 @@
     </main>
     <aside class="feed-aside">
       <section class="tofollow">
-        <h2 class="tofollow-title">Who to follow</h2>
+        <h2 class="tofollow-title-desktop">Who to follow</h2>
         {% if profile %}
           {% for user_profile in profiles %}          
             <div class="profile-container no-border relative">

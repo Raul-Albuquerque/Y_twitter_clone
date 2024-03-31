@@ -3,7 +3,7 @@
 
 {% block title %}
 
-  <title>Inscrever-se no Y / Y</title>
+  <title>Create an Account Y / Y</title>
 
 {% endblock title %}
 
@@ -14,25 +14,24 @@
       <img class="img-control" src="{% static 'images/logo.png' %}" alt="y logo">
     </section>
     <section class="content-container">
-      <h2 class="subtitle">Criar sua Conta</h2>
+      <h2 class="subtitle">Create your account</h2>
       <form class="form-default" method='POST' action='{% url 'signup' %}'>
         {% csrf_token %}
         {{ form }}
         <div class="input-group">
           <input type="checkbox" class="" id="termos">
           <label class="form-label" for="termos">
-            Ao se inscrever, você concorda com nossos 
-            <span class="text-blue">Termos</span>,
-            com a <span class="text-blue">Política de Privacidade</span> e com o Uso de 
-            <span class="text-blue">Cookies</span>. O Y pode usar suas informações de contato,
-            inclusive seu endereço de e-mail e seu número de telefone, para os fins descritos 
-            na nossa Política de Privacidade.
+            By signing up, you agree to our 
+            <span class="text-blue">Terms</span>,
+            <span class="text-blue">Privacy Policy</span> and
+            <span class="text-blue">Use of Cookies</span>. O Y may use your contact information,
+            including your email adress and telephone number, for the purposes described in our Privacy Policy.
           </label>
         </div>
-        <button class="btn btn-primary form-btn" type="submit">Cadastrar</button>
+        <button class="btn btn-primary form-btn" type="submit">Sign Up</button>
       </form>
       <div>
-        <p class="text-small">Já tem uma conta? <a class="text-blue" href="{% url 'signin' %}">Faça login</a></p>
+        <p class="text-small">Already have an account? <a class="text-blue" href="{% url 'signin' %}">Login</a></p>
       </div>
     </section>
   </main>
