@@ -48,11 +48,9 @@
     </aside>
     <aside class="feed-aside">
       <div class="nav-a-img-container">
-        {% if user.profile.profile_image and user.profile.profile_image.url %}
-            <img class="navbar-mobile-img" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
-          {% else %}
-            <img class="navbar-mobile-img" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
-          {% endif %}
+        <a href="{% url 'feed_tweets' %}">
+          <img class="img-logo-feed" src="{% static 'images/logo.png' %}" alt="y logo">
+        </a>
       </div>
       <nav class="navbar-desktop">
         <ul class="feed-nav-ul">
