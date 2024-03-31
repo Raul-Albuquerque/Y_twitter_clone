@@ -11,6 +11,9 @@ def base(request):
 
 def home(request):
     if request.user.is_authenticated:
-        return redirect("feed_tweets")
+        return render(
+            request,
+            "feed.html",
+        )
 
     return render(request, "home.html")

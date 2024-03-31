@@ -3,7 +3,7 @@
 
 {% block title %}
 
-  <title>Entrar no Y / Y</title>
+  <title>Login Y / Y</title>
 
 {% endblock title %}
 
@@ -14,20 +14,20 @@
       <img class="img-control" src="{% static 'images/logo.png' %}" alt="y logo">
     </section>
     <section class="content-container">
-      <h2 class="subtitle">Entrar no Y</h2>
+      <h2 class="subtitle">Sign in</h2>
       <form class="form-default" method="POST" action="{% url 'signin' %}">
         {% csrf_token %}
         {{ form }}
         <div class="input-group">
           <input type="checkbox" class="" id="termos">
           <label class="form-label" for="termos">
-            Não sou um robô
+            I'm not a robot.
           </label>
         </div>
-        <button class="btn btn-primary form-btn" type="submit">Entrar</button>
+        <button class="btn btn-primary form-btn" type="submit">Login</button>
       </form>
       <div>
-        <p class="text-small">Não tem uma conta? <a class="text-blue" href="{% url 'signup' %}">Inscreva-se</a></p>
+        <p class="text-small">Don't have an account? <a class="text-blue" href="{% url 'signup' %}">Sign up</a></p>
       </div>
     </section>
   </main>

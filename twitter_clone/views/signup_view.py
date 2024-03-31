@@ -5,11 +5,11 @@ from django.contrib.auth import authenticate, login
 from ..forms import SignUpForm
 
 
+from django.contrib.auth import authenticate, login
+
+
 def signup(request):
-    form = SignUpForm()
-    if request.method == "GET":
-        return render(request, "signup.html", {"form": form})
-    else:
+    if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data["usuario"]
@@ -30,9 +30,11 @@ def signup(request):
                     email=email,
                     password=password,
                 )
-                user.save()
-                # user.authenticate(username=username, password=password)
-                login(request, username=username, password=password)
+                user = authenticate(username=username, password=password)
+                login(request, user)
                 return redirect("feed_tweets")
         else:
             return HttpResponse("Algo deu errado")
+    else:
+        form = SignUpForm()
+        return render(request, "signup.html", {"form": form})

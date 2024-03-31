@@ -111,7 +111,6 @@ body {
   text-decoration: none;
   padding: 12px 10px;
   border-radius: var(--border-radius);
-  margin-bottom: 20px;
 }
 
 .profile-container:hover {
@@ -179,6 +178,12 @@ body {
 .tofollow-title {
   font-size: 18px;
   margin-bottom: 30px;
+}
+
+.tofollow-title-desktop {
+  font-size: 16px;
+  margin-bottom: 30px;
+  padding-left: 16px;
 }
 
 .downsize-text {
@@ -319,4 +324,8 @@ body {
 
 .navbar-mobile-a:hover{
   color: var(--text-gray);
+}
+
+.mg-b {
+  margin-bottom: 20px;
 }

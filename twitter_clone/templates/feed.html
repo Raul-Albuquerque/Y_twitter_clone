@@ -18,11 +18,13 @@
 <body>
   <div class="container-feed">
     <aside class="mobile-aside">
+      <a href="{% url 'profile' %}">
       {% if user.profile.profile_image and user.profile.profile_image.url %}
         <img class="navbar-mobile-img" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
       {% else %}
         <img class="navbar-mobile-img" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
       {% endif %}
+      </a>
       <nav class="navbar-mobile">
         <ul class="navbar-mobile-ul">
           <li class="navbar-mobile-li">
@@ -46,11 +48,9 @@
     </aside>
     <aside class="feed-aside">
       <div class="nav-a-img-container">
-        {% if user.profile.profile_image and user.profile.profile_image.url %}
-            <img class="navbar-mobile-img" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
-          {% else %}
-            <img class="navbar-mobile-img" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
-          {% endif %}
+        <a href="{% url 'feed_tweets' %}">
+          <img class="img-logo-feed" src="{% static 'images/logo.png' %}" alt="y logo">
+        </a>
       </div>
       <nav class="navbar-desktop">
         <ul class="feed-nav-ul">
@@ -72,14 +72,18 @@
           </li>
         </ul>
       </nav>
-      <a href="{% url 'profile' %}" class="profile-container">
+      <a href="{% url 'profile' %}" class="profile-container mg-b">
           {% if user.profile.profile_image and user.profile.profile_image.url %}
             <img class="profile-image" src="{{ user.profile.profile_image.url }}" alt="{ profile.user.username }">
           {% else %}
             <img class="profile-image" src="{% static 'images/default.jpg' %}" alt="{ profile.user.username }">
           {% endif %}
         <div class="profile-info-container">
-          <span class="profile-name">{{ profile.user.first_name }} {{ profile.user.last_name }}</span>
+          <span class="profile-name">{{ profile.user.first_name }} {{ profile.user.last_name }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="rgb(29, 155, 240)" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+              <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+            </svg>
+          </span>
           <span class="profile-username">@{{ profile.user.username }}</span>
         </div> 
       </a>
@@ -91,7 +95,7 @@
     </main>
     <aside class="feed-aside">
       <section class="tofollow">
-        <h2 class="tofollow-title">Who to follow</h2>
+        <h2 class="tofollow-title-desktop">Who to follow</h2>
         {% if profile %}
           {% for user_profile in profiles %}          
             <div class="profile-container no-border relative">
