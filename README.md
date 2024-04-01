@@ -9,8 +9,6 @@
 
 #### You can access the functional version of the project at <a target="_blank" href="https://raulalbuquerque.pythonanywhere.com/">raulalbuquerque.pythonanywhere.com/</a>
 
-<br>
-
 ## 📄 Description
 
 This is a robust project developed with Django that replicates various functionalities of Twitter, providing a complete social media experience. It allows users to:
