@@ -13,21 +13,21 @@
 
 This is a robust project developed with Django that replicates various functionalities of Twitter, providing a complete social media experience. It allows users to:
 
-- Create an account: Users can sign up for the application by providing their personal details.
+- **Create an account:** Users can sign up for the application by providing their personal details.
 
-- Log in: Registered users can enter the platform using their username and password.
+- **Log in:** Registered users can enter the platform using their username and password.
 
-- Update their profile: Users are able to change their profile picture or share a motivational quote in their bio.
+- **Update their profile:** Users are able to change their profile picture or share a motivational quote in their bio.
 
-- Post tweets: Users can share their thoughts and ideas through tweets and also by posting images.
+- **Post tweets:** Users can share their thoughts and ideas through tweets and also by posting images.
 
-- Delete tweets: Users have the ability to manage their tweets and delete them whenever necessary.
+- **Delete tweets:** Users have the ability to manage their tweets and delete them whenever necessary.
 
-- Like tweets: Users can engage with tweets from other users by liking them.
+- **Like tweets:** Users can engage with tweets from other users by liking them.
 
-- Follow other users: Users have the option to follow other users, enabling them to view their tweets in their feed.
+- **Follow other users:** Users have the option to follow other users, enabling them to view their tweets in their feed.
 
-- Unfollow: If necessary, users have the choice to unfollow other users.
+- **Unfollow:** If necessary, users have the choice to unfollow other users.
 
 ## 🛠️ Technologies:
 * [HTML](https://www.w3schools.com/html/)
