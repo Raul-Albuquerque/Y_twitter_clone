@@ -18,6 +18,6 @@ def signin(request):
                 login(request, user)
                 return redirect("feed_tweets")
 
-        return HttpResponse("Formulário inválido")
+        return HttpResponse("Check out your informations.")
 
     return render(request, "signin.html", {"form": form})

@@ -21,7 +21,7 @@ def signup(request):
             double_user = User.objects.filter(username=username).first()
 
             if double_user:
-                return HttpResponse("Usuário já existe")
+                return HttpResponse("The username already exists.")
             else:
                 user = User.objects.create_user(
                     username=username,
@@ -34,7 +34,7 @@ def signup(request):
                 login(request, user)
                 return redirect("feed_tweets")
         else:
-            return HttpResponse("Algo deu errado")
+            return HttpResponse("Something went wrong. Try again later.")
     else:
         form = SignUpForm()
         return render(request, "signup.html", {"form": form})
