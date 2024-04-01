@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
 from ..models import Profile
 
+
 # feed_view
-
-
 def feed(request):
     if request.user.is_authenticated:
         user = User.objects.get(id=request.user.id)

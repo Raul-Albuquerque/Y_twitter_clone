@@ -1,8 +1,4 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib import messages
-
-from ..forms import SignUpForm
+from django.shortcuts import render
 
 
 def base(request):
