@@ -19,26 +19,26 @@ class SignUpForm(forms.Form):
         ),
     )
     nome = forms.CharField(
-        max_length=10,
+        max_length=12,
         required=False,
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
                 "placeholder": "Name",
                 "required": True,
-                "max-length": 10,
+                "max-length": 12,
             }
         ),
     )
     sobrenome = forms.CharField(
-        max_length=10,
+        max_length=14,
         required=False,
         widget=forms.TextInput(
             attrs={
                 "class": "form-input",
                 "placeholder": "Last Name",
                 "required": True,
-                "max-length": 10,
+                "max-length": 14,
             }
         ),
     )
