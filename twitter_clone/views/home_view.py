@@ -9,7 +9,7 @@ def home(request):
     if request.user.is_authenticated:
         return render(
             request,
-            "feed.html",
+            "feed_tweets.html",
         )
 
     return render(request, "home.html")
