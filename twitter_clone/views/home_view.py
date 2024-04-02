@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def base(request):
@@ -7,9 +7,6 @@ def base(request):
 
 def home(request):
     if request.user.is_authenticated:
-        return render(
-            request,
-            "feed_tweets.html",
-        )
+        return redirect("feed_tweets")
 
     return render(request, "home.html")
