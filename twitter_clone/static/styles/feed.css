@@ -126,7 +126,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
 }
 
 .profile-img-container > img {
@@ -259,7 +258,6 @@ body {
 .btn-container-follow {
   display: flex;
   justify-content: end;
-  background-color: red;
 }
 
 .btn-follow {
