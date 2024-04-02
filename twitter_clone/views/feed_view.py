@@ -15,7 +15,7 @@ def feed(request):
 
         return render(
             request,
-            "feed.html",
+            "feed_tweets.html",
             {
                 "profile": profile,
                 "profiles": profiles,
