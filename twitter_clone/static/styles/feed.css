@@ -165,7 +165,7 @@ body {
   background-color: var(--dark-gray);
   border-radius: var(--border-radius);
   max-height: 600px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .tofollow-mobile {
