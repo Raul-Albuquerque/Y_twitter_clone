@@ -164,6 +164,8 @@ body {
   padding: 16px 0;
   background-color: var(--dark-gray);
   border-radius: var(--border-radius);
+  height: 600px;
+  overflow-y: auto;
 }
 
 .tofollow-mobile {
